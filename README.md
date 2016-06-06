@@ -1,1 +1,1 @@
-A mvc template for node.js + express.js +  mysql
+privte project. Nothing to tell
