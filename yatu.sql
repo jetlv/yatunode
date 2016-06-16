@@ -31,7 +31,7 @@ CREATE TABLE `yatu_images` (
   `name` varchar(500) NOT NULL DEFAULT '图片素材' COMMENT '图片的名称，描述这个图片',
   `path` varchar(500) NOT NULL COMMENT '图片的路径，用于在项目中操作',
   `height` int(11) DEFAULT '0' COMMENT '图片高度',
-  `wide` int(11) DEFAULT '0' COMMENT '图片宽度',
+  `width` int(11) DEFAULT '0' COMMENT '图片宽度',
   `status` int(11) NOT NULL DEFAULT '0' COMMENT '图片状态，默认0正常，其他待定',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
@@ -69,6 +69,20 @@ CREATE TABLE `yatu_menu` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 #
+# Structure for the `yatu_text` table : 
+#
+
+DROP TABLE IF EXISTS `yatu_text`;
+
+CREATE TABLE `yatu_text` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` int(11) DEFAULT NULL COMMENT '编码，用于标记',
+  `content` longtext COMMENT '文字内容',
+  `description` varchar(500) DEFAULT NULL COMMENT '说明这是什么文字',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+#
 # Structure for the `yatu_videos` table : 
 #
 
@@ -78,15 +92,16 @@ CREATE TABLE `yatu_videos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT '视频素材' COMMENT '视频的名称，描述这个视频',
   `path` varchar(500) NOT NULL DEFAULT 'http://' COMMENT '视频地址，一般为优酷外链',
+  `type` varchar(100) DEFAULT NULL COMMENT '视频类别',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 #
 # Data for the `yatu_images` table  (LIMIT 0,500)
 #
 
-INSERT INTO `yatu_images` (`id`, `name`, `path`, `height`, `wide`, `status`) VALUES 
+INSERT INTO `yatu_images` (`id`, `name`, `path`, `height`, `width`, `status`) VALUES 
   (1,'1-左1-1','images/gall_1.jpg',0,0,0),
   (2,'1-左1-2','images/gall_1.jpg',0,0,0),
   (3,'1-左1-3','images/gall_1.jpg',0,0,0),
@@ -129,7 +144,24 @@ INSERT INTO `yatu_menu` (`id`, `ename`, `cname`, `location`, `href`) VALUES
   (2,'AboutUS','关于我们',2,'/'),
   (3,'Gallery','相簿',3,'/'),
   (4,'Portfolio','作品集',4,'/'),
-  (5,'ContactUS','联系我们',5,'/');
+  (5,'ContactUS','联系我们',5,'#footer');
+COMMIT;
+
+#
+# Data for the `yatu_text` table  (LIMIT 0,500)
+#
+
+INSERT INTO `yatu_text` (`id`, `code`, `content`, `description`) VALUES 
+  (1,1,'我们是面向国内一流的后期交流团队，以帮助个人或企业赢得品牌宣传，为其提供简单、直接、系统的营销广告服务。','首页中部文字内容'),
+  (2,2,'2013年改编成都大学生兰巧“口吃哥”励志故事，拍摄微电影《阳光下的声命\r\n\r\n2014年四川天宇盛劳务公司宣传片拍摄制作\r\n\r\n2014年高新区和平小学形象宣传片制作\r\n\r\n2014-2015年感动武侯十大人物微电影短片拍摄\r\n\r\n2015璀璨人生最炫T台秀人物专题拍摄\r\n\r\n2015锦江区宣传部“三严三实”公益短片拍摄\r\n\r\n2015武侯区总工会暑期公益托管拍摄\r\n\r\n“2015成都榜样”20部系列人物微记录片拍摄制作\r\n\r\n第四届四川省道德模范成都好人四部微电影监制拍摄制作\r\n\r\n1受成都宣传部文明办委托拍摄《我们的节日》2015中秋特别节目《约定》\r\n\r\n1拍摄2015五一劳动节特别节目《十一双手》，此公益短片荣获省市和中央文明公益短片大赛大奖\r\n\r\n12015安七炫“铜雀台”之夜专题片拍摄','首页中下方文字内容');
+COMMIT;
+
+#
+# Data for the `yatu_videos` table  (LIMIT 0,500)
+#
+
+INSERT INTO `yatu_videos` (`id`, `name`, `path`, `type`) VALUES 
+  (1,'Shining all the time 亚图文化婚礼定制','http://player.youku.com/player.php/sid/XMTQ5NTQ2MjY2OA==/v.swf','婚礼');
 COMMIT;
 
 
