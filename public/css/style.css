@@ -183,6 +183,7 @@ p {
   margin-bottom: 20px;
 }
 p.offset__1 {
+  font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
   margin-bottom: 38px;
 }
 p.offset__2 {
@@ -218,6 +219,7 @@ h2 {
   margin-bottom: 24px;
 }
 h3 {
+  font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
   font-size: 36px;
   line-height: 48px;
   letter-spacing: -2px;

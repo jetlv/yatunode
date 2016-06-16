@@ -19,7 +19,7 @@
     <script src="js/jquery.ui.totop.js"></script>
     <script src="js/jquery.shuffle-images.js"></script>
     <script>
-        
+
         //动态加载顶部菜单
         $.post('index/menu', function(data) {
             var count = -1;
@@ -27,8 +27,24 @@
                 var current = ++count;
                 $(this).attr('href', data[current].href);
                 $(this).text(data[current].cname);
+                if(data[current].href === '#footer') {
+                    //锚点滑动效果
+                    $(this).click(function() {    
+                           $("html, body").animate({scrollTop:$('#footer').offset().top}, 800);
+                    });
+                }
             });
         });
+        
+        // /**
+        //  * 锚点滑动效果
+        //  */
+        // $("a[href = '#footer']").click(function() {    
+        //     $("html, body").animate({    
+        //         scrollTop: $($(this).attr("href")).offset().top}, 1500);    
+        //     return false;    
+        // });
+
         
         //动态加载首页图片
         $.post('index/images', function(data) {
@@ -49,7 +65,39 @@
                }   
             } 
         });
+
+        /**
+         * 动态加载“我们的责任”文本. Code=1直接写死的
+         */
+        $.post('index/dutiesText/1', function(data) {
+            $('#duty').text(data[0].content);
+        });
+
+        /**
+         * 动态加载“成就墙”文本. Code=2直接写死的
+         */
+        $.post('index/dutiesText/2', function(data) {
+            var content = data[0].content;
+            // var cList = content.split('\r\n');
+            // alert(cList.length);
+
+            // for(var n=0; n < cList.lenth; n++) {
+            //     clist[n]+="</br>"
+            // }
+
+            $('.offset__2').text(content);
+        });
+
+        /**
+         * 动态加载 首页视频
+         */
+        $.post('index/videoLink/1', function(data) {
+            var link = data[0].path;
+            $('#video').append('<embed allowFullScreen="true" src="' + link + '" quality="high" width="480" height="400" align="center" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>');
+        });
+
         
+       
         
         
         $(window).load(function(){
@@ -104,18 +152,28 @@
                 <div class="row">
                     <div class="grid_12 ">
                         <h1 class="logo">
-            <a href="/">
+                            <a href="/">
               	米兰网
             </a>
-          </h1>
+                        </h1>
                         <div class="navigation ">
                             <nav>
                                 <ul class="sf-menu">
-                                    <li class="current"><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
+                                    <li class="current">
+                                        <a href="#"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
                                 </ul>
                             </nav>
                             <div class="clear"></div>
@@ -130,11 +188,11 @@
           Content
 ======================-->
     <section id="content">
-        <div class="ic">More Website Templates @ TemplateMonster.com - August11, 2014!</div>
+        <div class="ic">eggshell</div>
         <div class="container">
             <div class="row">
                 <div class="grid_12">
-                    <h2 class="ta__center">相   簿</h2>
+                    <h2 class="ta__center">相 簿</h2>
                     <div class="shuffle-group">
                         <div class="row">
                             <div class="grid_8">
@@ -199,28 +257,21 @@
                 </div>
             </div>
         </div>
+        <div align="center" id="video">
+
+        </div>
         <div class="sep-1"></div>
         <div class="container">
             <div class="row">
                 <div class="grid_8">
-                    <h3>Bio</h3>
+                    <h3>我们的责任</h3>
                     <img src="images/page1_img1.jpg" alt="" class="img_inner fleft noresize">
                     <div class="extra_wrapper">
-                        <p class="offset__1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat mattis neque facilisis, sit
-                            amet ultricies erat rutrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis,
-                            quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a scelerisque eros convallis accumsan.
-                            Maecenas vehicula egestas derto venenatis. Duis massa elit, auctor non pellentesque vel, aliquet
-                            sit amet erat.</p>
+                        <p id="duty" class="offset__1"></p>
                     </div>
-                    <div class="clear"></div>
-                    <p>Find detailed information about the <a href=" http://blog.templatemonster.com/free-website-templates/"
-                            rel="nofollow" class="color1"><strong>freebie</strong></a> here. </p>
-                    <p>Visit TemplateMonster.com to find more <a href="http://www.templatemonster.com/properties/topic/design-photography/"
-                            rel="nofollow" class="color1"><strong>goodies</strong></a> of this kind.</p>
-                    Proin pharetra luctus diam, a scelerisque eros convallis accumsan. Maecenas vehicula egestas venenatis. <br>
-                    <a href="#" class="btn">more</a>
                 </div>
-                <div class="grid_4">
+
+                <!--<div class="grid_4">
                     <h3>Follow me</h3>
                     <ul class="socials">
                         <li>
@@ -240,24 +291,21 @@
                             <a href="#">Follow me on YouTube</a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="sep-1"></div>
         <div class="container">
             <div class="row">
                 <div class="grid_7">
-                    <h3 class="head__1">From the Blog</h3>
-                    <time class="time-1" datetime="2014-01-01">24.07 <br> 2014</time>
-                    <p class="offset__2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat mattis neque facilisis, sit amet
-                        ultricies erat rutrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis, quis malesuada
-                        nibh odio ut velit. Proin pharetra luctus diam, a scelerisque eros convallis accumsan. Maecenas vehicula
-                        egestas derto venenatis. Duis </p>
-                    Dorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat mattis neque facilisis, sit amet ultricies erat rutrum.
-                    Cras facilisis, nulla vel viverra auctor, leo magna sodales felis. <br>
+                    <h3 class="head__1">成就墙</h3>
+                    <!-- <time class="time-1" datetime="2014-01-01">24.07 <br> 2014</time> -->
+                    <p class="offset__2"></p>
                     <a href="#" class="btn">more</a>
                 </div>
+
                 <div class="grid_4 preffix_1">
+                    <!--<div class="grid_4 preffix_1">
                     <h3 class="head__1">Testimonials</h3>
                     <blockquote class="bq_1">
                         <img src="images/page1_img2.jpg" alt="" class="img_inner fleft noresize">
@@ -270,9 +318,9 @@
                         <br>
                         <a href="#" class="btn">more</a>
                     </blockquote>
+                </div> -->
                 </div>
             </div>
-        </div>
     </section>
     <!--==============================
               footer
@@ -282,9 +330,9 @@
             <div class="row">
                 <div class="grid_12">
                     <h2>Contacts</h2>
-                    <div class="footer_phone">+1 800 559 6580</div>
-                    <a href="#" class="footer_mail">info@demolink.org</a>
-                    <div class="sub-copy">Website designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a></div>
+                    <div class="footer_phone">18683529197</div>
+                    <a href="#" class="footer_mail">你的邮箱</a>
+                    <div class="sub-copy">地址</div>
                 </div>
             </div>
 
