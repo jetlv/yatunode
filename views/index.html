@@ -23,6 +23,10 @@
         //动态加载顶部菜单
         $.post('index/menu', function(data) {
             var count = -1;
+
+            /**
+             * pc端
+             */
             $('.sf-menu').find('li').find('a').each(function() {
                 var current = ++count;
                 $(this).attr('href', data[current].href);
@@ -36,6 +40,23 @@
             });
             //最终将本页作为选中项
             $('.sf-menu').find('li:has(a[href="/"])').attr('class', 'current');
+
+            
+            /**
+             * wap端
+             */
+            count=-1
+             $('.sf-menu').find('option').each(function() {
+                var current1 = ++count;
+                $(this).attr('value', data[current1].href);
+                $(this).text(data[current1].cname);
+                if(data[current1].href === '#footer') {
+                    //锚点滑动效果
+                    $(this).click(function() {    
+                           $("html, body").animate({scrollTop:$('#footer').offset().top}, 800);
+                    });
+                }
+            });
         });
         
         // /**

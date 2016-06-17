@@ -141,7 +141,7 @@ COMMIT;
 
 INSERT INTO `yatu_menu` (`id`, `ename`, `cname`, `location`, `href`) VALUES 
   (1,'Home','首页',1,'/'),
-  (2,'AboutUS','关于我们',2,'/'),
+  (2,'AboutUS','关于我们',2,'/about'),
   (3,'Gallery','相簿',3,'/'),
   (4,'Portfolio','作品集',4,'/'),
   (5,'ContactUS','联系我们',5,'#footer');
