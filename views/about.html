@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>About</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.1.1.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/superfish.js"></script>
+    <script src="js/jquery.equalheights.js"></script>
+    <script src="js/jquery.mobilemenu.js"></script>
+    <script src="js/tmStickUp.js"></script>
+    <script src="js/jquery.ui.totop.js"></script>
+    <script>
+
+        //动态加载顶部菜单
+        $.post('index/menu', function(data) {
+            var count = -1;
+            $('.sf-menu').find('li').find('a').each(function() {
+                var current = ++count;
+                $(this).attr('href', data[current].href);
+                $(this).text(data[current].cname);
+                if(data[current].href === '#footer') {
+                    //锚点滑动效果
+                    $(this).click(function() {    
+                           $("html, body").animate({scrollTop:$('#footer').offset().top}, 800);
+                    });
+                }
+            });
+            //最终将本页作为选中项
+            $('.sf-menu').find('li:has(a[href="/about"])').attr('class', 'current');
+        });
+        
+        $(window).load(function(){
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            $('#stuck_container').tmStickUp({});  
+        }); 
+
+</script>
+    <!--[if lt IE 8]>
+ <div style=' clear: both; text-align:center; position: relative;'>
+   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+     <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+   </a>
+</div>
+<![endif]-->
+    <!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+
+<body>
+    <!--==============================
+              header
+=================================-->
+    <header>
+        <div class="header_top">
+            <div class="container">
+                <div class="row">
+                    <div class="grid_12">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="stuck_container">
+            <!--==============================
+              Stuck menu
+  =================================-->
+            <div class="container">
+                <div class="row">
+                    <div class="grid_12 ">
+                        <h1 class="logo">
+                            <a href="index.html">
+              Photo.Folio
+            </a>
+                        </h1>
+                        <div class="navigation ">
+                            <nav>
+                                <ul class="sf-menu">
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <!--=====================
+          Content
+======================-->
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="grid_12">
+                    <h2>核心业务</h2>
+                    <img src="images/page2_img1.jpg" alt="" class="img_inner fleft">
+                    <p>我们是一支视觉创意团队，提供以视觉为基础的营销方式，建立个人或（企业）品牌传播力量，贴身服务于客户；
+                        专注不同行业客户，提供数字高清图像服务营销方案。</p>
+                    <p>高清视频拍摄服务 </p>
+                    <p>特效航拍、剧组团队拍摄、会议或活动记录</p>
+                    <img src="images/page2_img2.jpg" alt="" class="img_inner img_fright">
+                    <p>创意宣传片策划&制作服务</p>
+                    <p>企业宣传片、城市宣传片、旅游宣传片、专题片制作</p>
+                    <p>高清品牌广告创意&制作业务</p>
+                    个人、企业微电影   品牌释义广告
+                </div>
+            </div>
+        </div>
+        <div class="sep-1 offset__1"></div>
+        <div class="container">
+            <div class="row">
+                <div class="grid_12">
+                    <h3>业绩展示</h3>
+                </div>
+                <div class="grid_3">
+                    <div class="block-1">
+                        <div class="fa fa-image"></div>
+                        <div class="block-1_title">2013</div>改编成都大学生兰巧“口吃哥”励志故事，拍摄微电影《阳光下的声命》
+                        <br>
+                        <a href="#" class="btn">more</a>
+                    </div>
+                </div>
+                <div class="grid_3">
+                    <div class="block-1">
+                        <div class="fa fa-trophy"></div>
+                        <div class="block-1_title">2014</div>四川天宇盛劳务公司宣传片拍摄制作
+                        <br>
+                        2014-2015年感动武侯十大人物微电影短片拍摄
+                        <br>
+                        <a href="#" class="btn">more</a>
+                    </div>
+                </div>
+                <div class="grid_3">
+                    <div class="block-1">
+                        <div class="fa fa-star"></div>
+                        <div class="block-1_title">2015</div>2015璀璨人生最炫T台秀人物专题拍摄
+                        <br>
+                        锦江区宣传部“三严三实”公益短片拍摄
+                        <br>
+                        武侯区总工会暑期公益托管拍摄
+                        <br>
+                        2015成都榜样”20部系列人物微记录片拍摄制作
+                        <a href="#" class="btn">more</a>
+                    </div>
+                </div>
+                <div class="grid_3">
+                    <div class="block-1">
+                        <div class="fa fa-camera"></div>
+                        <div class="block-1_title">2016</div>我们会更好
+                        <br>
+                        <a href="#" class="btn">more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!--==============================
+              footer
+=================================-->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="grid_12">
+                    <h2>Contacts</h2>
+                    <div class="footer_phone">18683529197</div>
+                    <a href="#" class="footer_mail">你的邮箱</a>
+                    <div class="sub-copy">地址</div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <a href="#" id="toTop" class="fa fa-chevron-up"></a>
+</body>
+
+</html>

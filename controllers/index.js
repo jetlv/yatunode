@@ -71,7 +71,9 @@ exports.dutiesText = function (req, data, render) {
 	});
 }
 
-
+/**
+ * 视频链接
+ */
 exports.videoLink = function (req, data, render) {
 	var querySql = 'select v.* from yatu_videos v where v.id=?';
 	db.query(querySql, [req.params.id], function (err, results) {

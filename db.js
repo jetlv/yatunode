@@ -3,6 +3,7 @@
 var mysql = require('mysql');
 var async = require('async');
 var mvc = require('./mvc');
+var results = ""; //避免直接死掉
 
 var pool  = mysql.createPool({
 	host     : mvc.config.DB_HOST,

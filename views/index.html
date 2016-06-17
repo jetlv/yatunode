@@ -34,6 +34,8 @@
                     });
                 }
             });
+            //最终将本页作为选中项
+            $('.sf-menu').find('li:has(a[href="/"])').attr('class', 'current');
         });
         
         // /**
@@ -159,7 +161,7 @@
                         <div class="navigation ">
                             <nav>
                                 <ul class="sf-menu">
-                                    <li class="current">
+                                    <li>
                                         <a href="#"></a>
                                     </li>
                                     <li>
