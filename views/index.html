@@ -49,6 +49,11 @@
              $('.sf-menu').find('option').each(function() {
                 var current1 = ++count;
                 $(this).attr('value', data[current1].href);
+                $(this).removeAttr('selected');
+                 //最终将本页作为选中项
+                if($(this).attr('value') === '/') {
+                    $(this).attr('selected', 'selected');
+                }
                 $(this).text(data[current1].cname);
                 if(data[current1].href === '#footer') {
                     //锚点滑动效果
@@ -59,14 +64,6 @@
             });
         });
         
-        // /**
-        //  * 锚点滑动效果
-        //  */
-        // $("a[href = '#footer']").click(function() {    
-        //     $("html, body").animate({    
-        //         scrollTop: $($(this).attr("href")).offset().top}, 1500);    
-        //     return false;    
-        // });
 
         
         //动态加载首页图片

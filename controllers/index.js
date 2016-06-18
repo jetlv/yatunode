@@ -77,9 +77,6 @@ exports.dutiesText = function (req, data, render) {
 exports.videoLink = function (req, data, render) {
 	var querySql = 'select v.* from yatu_videos v where v.id=?';
 	db.query(querySql, [req.params.id], function (err, results) {
-		for(var i in req.params) {
-			console.log(i + " : " + req.params[i]);
-		}
 		if (err) {
 			console.error("Unexpected error");
 			return;

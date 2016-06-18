@@ -7,7 +7,9 @@ var db = require("../db");
 /**
  * gallery跳转
  */
-exports.gallery = function(req, data, render) {
+exports.index = function(req, data, render) {
 	render(false);
 };
+
+
 

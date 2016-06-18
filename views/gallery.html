@@ -25,10 +25,43 @@
     //动态加载顶部菜单
         $.post('index/menu', function(data) {
             var count = -1;
-            $('.sf-menu').find('li').each(function() {
+
+            /**
+             * pc端
+             */
+            $('.sf-menu').find('li').find('a').each(function() {
                 var current = ++count;
                 $(this).attr('href', data[current].href);
                 $(this).text(data[current].cname);
+                if(data[current].href === '#footer') {
+                    //锚点滑动效果
+                    $(this).click(function() {    
+                           $("html, body").animate({scrollTop:$('#footer').offset().top}, 800);
+                    });
+                }
+            });
+            //最终将本页作为选中项
+            $('.sf-menu').find('li:has(a[href="/gallery"])').attr('class', 'current');
+            
+            /**
+             * wap端
+             */
+            count=-1
+             $('.sf-menu').find('option').each(function() {
+                var current1 = ++count;
+                $(this).attr('value', data[current1].href);
+                $(this).removeAttr('selected');
+                 //最终将本页作为选中项
+                if($(this).attr('value') === '/gallery') {
+                    $(this).attr('selected', 'selected');
+                }
+                $(this).text(data[current1].cname);
+                if(data[current1].href === '#footer') {
+                    //锚点滑动效果
+                    $(this).click(function() {    
+                           $("html, body").animate({scrollTop:$('#footer').offset().top}, 800);
+                    });
+                }
             });
         });
         
@@ -61,7 +94,7 @@
       <div class="container">
         <div class="row">
           <div class="grid_12">
-            <h1><a href="index.html">Photo.Folio <br> Capturing Life </a></h1> your photographer
+            <h1><a href="index.html">亚图相簿 </a></h1> 
           </div>
         </div>
       </div>
@@ -74,19 +107,29 @@
         <div class="row">
           <div class="grid_12 ">
             <h1 class="logo">
-            <a href="index.html">
+              <a href="index.html">
               	亚图文化
             </a>
-          </h1>
+            </h1>
             <div class="navigation ">
               <nav>
-            <ul class="sf-menu">
-                  <li><a href=""></a></li>
-                  <li class="current"><a href=""></a></li>
-                  <li><a href=""></a></li>
-                  <li><a href=""></a></li>
-                  <li><a href=""></a></li>
-              </ul>
+                <ul class="sf-menu">
+                  <li>
+                    <a href=""></a>
+                  </li>
+                  <li>
+                    <a href=""></a>
+                  </li>
+                  <li>
+                    <a href=""></a>
+                  </li>
+                  <li>
+                    <a href=""></a>
+                  </li>
+                  <li>
+                    <a href=""></a>
+                  </li>
+                </ul>
               </nav>
               <div class="clear"></div>
             </div>
