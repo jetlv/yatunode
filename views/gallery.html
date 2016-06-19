@@ -46,9 +46,11 @@
             /**
              * wap端
              */
-            count=-1
+            //删除那个空的选项
+            $('.sf-menu').find(':contains("Navigate to...")').remove();
+            var wcount=-1;           
              $('.sf-menu').find('option').each(function() {
-                var current1 = ++count;
+                var current1 = ++wcount;
                 $(this).attr('value', data[current1].href);
                 $(this).removeAttr('selected');
                  //最终将本页作为选中项

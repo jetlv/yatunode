@@ -142,8 +142,8 @@ COMMIT;
 INSERT INTO `yatu_menu` (`id`, `ename`, `cname`, `location`, `href`) VALUES 
   (1,'Home','首页',1,'/'),
   (2,'AboutUS','关于我们',2,'/about'),
-  (3,'Gallery','相簿',3,'/'),
-  (4,'Portfolio','作品集',4,'/'),
+  (3,'Gallery','相簿',3,'/gallery'),
+  (4,'Portfolio','作品集',4,'/portfolio'),
   (5,'ContactUS','联系我们',5,'#footer');
 COMMIT;
 
@@ -161,7 +161,7 @@ COMMIT;
 #
 
 INSERT INTO `yatu_videos` (`id`, `name`, `path`, `type`) VALUES 
-  (1,'Shining all the time 亚图文化婚礼定制','http://player.youku.com/player.php/sid/XMTQ5NTQ2MjY2OA==/v.swf','婚礼');
+  (1,'Shining all the time 亚图文化婚礼定制','http://player.youku.com/embed/XMTYxMDkwNzczMg==','婚礼');
 COMMIT;
 
 
