@@ -102,24 +102,24 @@ CREATE TABLE `yatu_videos` (
 #
 
 INSERT INTO `yatu_images` (`id`, `name`, `path`, `height`, `width`, `status`) VALUES 
-  (1,'1-左1-1','images/gall_1.jpg',0,0,0),
-  (2,'1-左1-2','images/gall_1.jpg',0,0,0),
-  (3,'1-左1-3','images/gall_1.jpg',0,0,0),
-  (4,'1-右上-1','images/gall_1.jpg',0,0,0),
-  (5,'1-右上-2','images/gall_1.jpg',0,0,0),
-  (6,'1-右上-3','images/gall_1.jpg',0,0,0),
-  (7,'1-右下-1','images/gall_1.jpg',0,0,0),
-  (8,'1-右下-2','images/gall_1.jpg',0,0,0),
-  (9,'1-右下-3','images/gall_1.jpg',0,0,0),
-  (10,'2-左上-1','images/gall_1.jpg',0,0,0),
-  (11,'2-左上-2','images/gall_1.jpg',0,0,0),
-  (12,'2-左上-3','images/gall_1.jpg',0,0,0),
-  (13,'2-左下-1','images/gall_1.jpg',0,0,0),
-  (14,'2-左下-2','images/gall_1.jpg',0,0,0),
-  (15,'2-左下-3','images/gall_1.jpg',0,0,0),
-  (16,'2-右-1','images/gall_1.jpg',0,0,0),
-  (17,'2-右-2','images/gall_1.jpg',0,0,0),
-  (18,'2-右-3','images/gall_1.jpg',0,0,0);
+  (1,'1-左1-1','images/yatu_1.JPG',0,0,0),
+  (2,'1-左1-2','images/yatu_1.JPG',0,0,0),
+  (3,'1-左1-3','images/yatu_1.JPG',0,0,0),
+  (4,'1-右上-1','images/yatu_1.JPG',0,0,0),
+  (5,'1-右上-2','images/yatu_1.JPG',0,0,0),
+  (6,'1-右上-3','images/yatu_1.JPG',0,0,0),
+  (7,'1-右下-1','images/yatu_1.JPG',0,0,0),
+  (8,'1-右下-2','images/yatu_1.JPG',0,0,0),
+  (9,'1-右下-3','images/yatu_1.JPG',0,0,0),
+  (10,'2-左上-1','images/yatu_1.JPG',0,0,0),
+  (11,'2-左上-2','images/yatu_1.JPG',0,0,0),
+  (12,'2-左上-3','images/yatu_1.JPG',0,0,0),
+  (13,'2-左下-1','images/yatu_1.JPG',0,0,0),
+  (14,'2-左下-2','images/yatu_1.JPG',0,0,0),
+  (15,'2-左下-3','images/yatu_1.JPG',0,0,0),
+  (16,'2-右-1','images/yatu_1.JPG',0,0,0),
+  (17,'2-右-2','images/yatu_1.JPG',0,0,0),
+  (18,'2-右-3','images/yatu_1.JPG',0,0,0);
 COMMIT;
 
 #
@@ -161,7 +161,7 @@ COMMIT;
 #
 
 INSERT INTO `yatu_videos` (`id`, `name`, `path`, `type`) VALUES 
-  (1,'Shining all the time 亚图文化婚礼定制','http://player.youku.com/embed/XMTYxMDkwNzczMg==','婚礼');
+  (1,'Shining all the time 亚图文化婚礼定制','http://player.youku.com/embed/XMTQ5NTQ2MjY2OA==','婚礼');
 COMMIT;
 
 

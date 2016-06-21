@@ -21,7 +21,7 @@ exports.setEnv = function(env) {
 			exports.DB_PORT = "3306";
 			exports.DB_NAME = 'yatu';
 			exports.DB_USER = 'root';
-			exports.DB_PASS = 'root';
+			exports.DB_PASS = 'devpass';
 			return true;
 		case "testing":
 			exports.DEBUG_LOG = true;
